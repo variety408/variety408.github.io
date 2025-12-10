@@ -25,22 +25,12 @@ body {
     width: 100%;
     box-sizing: border-box; 
     max-width: 800px; 
-    
-    /* REMOVED: box-shadow */
-    /* REMOVED: border-radius */
 }
-/* A
 
-lign the text within the title div to the center */
+/* Align the text within the title div to the center */
 .content-container .title {
     text-align: center;
 }
-/* --- END NEW CSS RULE --- */
-
-
-
-
-/* Text alignment remains natural (LTR or RTL based on content direction) */
 
 /* Style for the image */
 .content-container img {
