@@ -1,0 +1,60 @@
+/* Ensure the entire body/page background is white whitespace */
+body {
+    margin: 0;
+    background-color: #ffffff;
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Add this line to use Vazirmatn for all text */
+    font-family: Vazirmatn, sans-serif; 
+}
+
+.content-container {
+    /* Use MARGIN to create the 20% whitespace from the screen edges */
+    margin: 20px 20% 20px 20%; 
+    
+    /* The content area background is also white */
+    background-color: #ffffff;
+    
+    /* Add internal padding for space between the text and the container boundary */
+    padding: 20px;
+
+    /* Make it responsive */
+    width: 100%;
+    box-sizing: border-box; 
+    max-width: 800px; 
+    
+    /* REMOVED: box-shadow */
+    /* REMOVED: border-radius */
+}
+/* A
+
+lign the text within the title div to the center */
+.content-container .title {
+    text-align: center;
+}
+/* --- END NEW CSS RULE --- */
+
+
+
+
+/* Text alignment remains natural (LTR or RTL based on content direction) */
+
+/* Style for the image */
+.content-container img {
+    max-width: 100%; 
+    height: auto;
+    display: block; 
+    margin: 20px auto; 
+}
+
+/* Media query for smaller screens to reduce the large 20% margin */
+@media (max-width: 768px) {
+    .content-container {
+        /* On small screens, reduce margins so content doesn't get squeezed */
+        margin: 10px 5%; 
+        padding: 15px;
+    }
+}

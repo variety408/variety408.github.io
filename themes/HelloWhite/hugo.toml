@@ -1,0 +1,13 @@
+# hugo.toml file
+
+baseURL = "example.org"
+languageCode = "en-us"
+title = "My Hugo Site"
+theme = "HelloWhite"
+
+# Ensure "page" is NOT disabled here
+disableKinds = ["taxonomy", "section", "RSS", "sitemap", "robotsTXT", "404", "home"] 
+
+[taxonomies]
+  category = ""
+  tag = ""

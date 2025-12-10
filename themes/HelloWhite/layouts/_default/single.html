@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .Title }}</title>
+    <!-- Link the external CSS file -->
+     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css"> 
+</head>
+<body>
+    <!-- Wrap the Hugo content in our container div -->
+    <div class="content-container">
+        <header>
+            <div class="title" dir="auto">
+            <h1>{{ .Title }}</h1>
+            </div>
+        </header>
+        <div class="content" dir="auto"> 
+        <main>
+            {{ .Content }}
+        </main>
+        </div>
+    </div>
+</body>
+</html>
