@@ -1,6 +1,6 @@
 # hugo.toml file
 
-baseURL = "variety408.github.io/site-deploy"
+baseURL = "variety408.github.io/site-deploy/"
 languageCode = "en-us"
 title = "Hello"
 theme = "HelloWhite"
