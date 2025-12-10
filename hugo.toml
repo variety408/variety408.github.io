@@ -1,0 +1,13 @@
+# hugo.toml file
+
+baseURL = "variety408.github.io/"
+languageCode = "en-us"
+title = "Hello"
+theme = "HelloWhite"
+
+# Ensure "page" is NOT disabled here
+disableKinds = ["taxonomy", "section", "RSS", "sitemap", "robotsTXT", "404", "home"] 
+
+[taxonomies]
+  category = ""
+  tag = ""
