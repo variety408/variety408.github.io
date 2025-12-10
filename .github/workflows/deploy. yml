@@ -1,0 +1,32 @@
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Trigger this workflow every time you push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true # Use this if you manage themes as submodules (which you currently don't, but it's safe to keep)
+          fetch-depth: 0   # Fetch all history for accurate deployment
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          # extended: true # Use this line if your theme requires Hugo extended version
+
+      - name: Build site
+        run: hugo --minify
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public # This is the directory Hugo outputs static files into
+          cname: mydomain.com # Remove this line if you aren't using a custom domain
