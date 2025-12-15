@@ -1,6 +1,6 @@
 # hugo.toml file
 
-baseURL = "dorensa.com/"
+baseURL = "https://dorensa.com/"
 languageCode = "en-us"
 title = "Hello"
 theme = "HelloWhite"
