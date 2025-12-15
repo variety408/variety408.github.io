@@ -1,6 +1,6 @@
 # hugo.toml file
 
-baseURL = "variety408.github.io/"
+baseURL = "dorensa.com/"
 languageCode = "en-us"
 title = "Hello"
 theme = "HelloWhite"
