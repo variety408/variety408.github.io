@@ -2,7 +2,7 @@
 
 baseURL = "https://dorensa.com/"
 languageCode = "en-us"
-title = "Hello"
+title = "Dorensa"
 theme = "HelloWhite"
 
 # Ensure "page" is NOT disabled here
