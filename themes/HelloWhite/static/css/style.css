@@ -56,3 +56,69 @@ body {
         padding: 15px;
     }
 }
+
+/* responsive container */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* base table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+/* cells */
+th, td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #e6e6e6;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* header */
+thead th {
+  background: #f7f7f8;
+  font-weight: 600;
+  color: #222;
+  position: sticky; /* optional: sticky header */
+  top: 0;
+}
+
+/* zebra rows */
+tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+tbody tr:nth-child(even) {
+  background: #fbfbfc;
+}
+
+/* small screens */
+@media (max-width: 720px) {
+  table thead { display: none; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  tr { margin-bottom: 0.75rem; border: 1px solid #eee; padding: 0.5rem; }
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: #666;
+  }
+}
+
+table th,
+table td {
+  text-align: center;
+  vertical-align: middle;
+}
