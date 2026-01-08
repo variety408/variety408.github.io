@@ -58,26 +58,19 @@ body {
 }
 
 /* responsive container */
-.table-responsive {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
+/* keep responsive container */
+.table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
-/* base table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-family: inherit;
-  font-size: 0.95rem;
-}
+/* base table styling (unchanged) */
+table { width: 100%; border-collapse: collapse; border-spacing: 0; font-family: inherit; font-size: 0.95rem; }
 
-/* cells */
-th, td {
+/* cells (desktop default: center horizontally & vertically) */
+table th,
+table td {
   padding: 0.6rem 0.75rem;
   border: 1px solid #e6e6e6;
-  text-align: left;
-  vertical-align: top;
+  text-align: center;
+  vertical-align: middle;
 }
 
 /* header */
@@ -85,44 +78,49 @@ thead th {
   background: #f7f7f8;
   font-weight: 600;
   color: #222;
-  position: sticky; /* optional: sticky header */
+  position: sticky;
   top: 0;
 }
 
 /* zebra rows */
-tbody tr:nth-child(odd) {
-  background: #ffffff;
-}
-tbody tr:nth-child(even) {
-  background: #fbfbfc;
-}
+tbody tr:nth-child(odd){ background: #ffffff; }
+tbody tr:nth-child(even){ background: #fbfbfc; }
 
-/* small screens */
+/* small screens: stack rows and show header labels via data-label */
 @media (max-width: 720px) {
-  table thead { display: none; }
-  table, tbody, tr, td { display: block; width: 100%; }
-  tr { margin-bottom: 0.75rem; border: 1px solid #eee; padding: 0.5rem; }
-  td {
+  .table-responsive table thead { display: none; }               /* hide header */
+  .table-responsive table,
+  .table-responsive tbody,
+  .table-responsive tr,
+  .table-responsive td { display: block; width: 100%; box-sizing: border-box; }
+
+  .table-responsive tr { margin-bottom: 0.75rem; border: 1px solid #eee; padding: 0.5rem; }
+
+  .table-responsive td {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0.5rem;
     border: none;
     border-bottom: 1px solid #f1f1f1;
+    text-align: left;            /* keep cell content left-aligned on mobile */
   }
-  td::before {
+
+  /* label shown before each cell — requires data-label on each td */
+  .table-responsive td::before {
     content: attr(data-label);
     font-weight: 600;
-    margin-right: 0.5rem;
     color: #666;
+    margin-right: 0.75rem;
+    flex: 0 0 45%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
-}
 
-table th,
-table td {
-  text-align: center;
-  vertical-align: middle;
+  /* ensure values wrap nicely */
+  .table-responsive td > * { margin: 0; flex: 1 1 auto; }
 }
-
 
 
 /* Caption */
