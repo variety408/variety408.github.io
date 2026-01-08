@@ -58,7 +58,6 @@ body {
 }
 
 /* responsive container */
-/* keep responsive container */
 .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 /* base table styling (unchanged) */
@@ -120,6 +119,45 @@ tbody tr:nth-child(even){ background: #fbfbfc; }
 
   /* ensure values wrap nicely */
   .table-responsive td > * { margin: 0; flex: 1 1 auto; }
+}
+
+/* Firefox-specific fixes for mobile (only applies in Firefox) */
+@-moz-document url-prefix() {
+  @media (max-width: 720px) {
+    /* ensure row and cell layout used on mobile in Firefox */
+    .table-responsive table,
+    .table-responsive tbody,
+    .table-responsive tr { display: block !important; width: 100% !important; box-sizing: border-box; }
+
+    /* use flex on td but override any table-cell behavior */
+    .table-responsive td {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 2.2rem;           /* prevents collapsed cells in Firefox */
+      padding: 0.5rem !important;
+      border: none !important;
+      border-bottom: 1px solid #f1f1f1 !important;
+      text-align: left !important;
+    }
+
+    /* make the generated label an inline-block with fixed basis */
+    .table-responsive td::before {
+      display: inline-block !important;
+      width: 45% !important;        /* matches flex basis used elsewhere */
+      box-sizing: border-box !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      content: attr(data-label) !important;
+      font-weight: 600 !important;
+      color: #666 !important;
+      margin-right: 0.75rem !important;
+      flex: 0 0 45% !important;
+    }
+
+    .table-responsive td > * { margin: 0 !important; flex: 1 1 auto !important; }
+  }
 }
 
 
